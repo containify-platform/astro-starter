@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Runs on the server for every request.
+const renderedAt = new Date().toISOString();
+const { origin } = Astro.url;
+---
+
+<Layout title="Astro on Containify">
+	<h1>Astro on Containify</h1>
+	<p>Edit <code>src/pages/index.astro</code> and push to deploy a new version.</p>
+	<p>
+		This page was rendered on the server at <time datetime={renderedAt}>{renderedAt}</time>, for <code>{origin}</code>.
+	</p>
+	<p>
+		<a href="/api/hello">/api/hello</a> is an API route, and <a href="/about">/about</a> is prerendered as static HTML at build time.
+	</p>
+	<p class="links">
+		<a href="https://docs.astro.build">Astro docs</a>
+		<a href="https://containify.cloud/docs">Containify docs</a>
+	</p>
+</Layout>
+
+<style>
+	.links {
+		display: flex;
+		gap: 1.5rem;
+	}
+</style>
